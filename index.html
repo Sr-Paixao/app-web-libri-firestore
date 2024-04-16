@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB APP LIBRI - FIREBASE: FIRESTORE</title>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link href="./styles.css" rel="stylesheet" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
 
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>WEB APP LIBRI - FIREBASE: FIRESTORE</h1>
+    <body>
+        <h1>Projeto Kibado</h1>
+
     <div class="content">
-        <form id="add-book-form"></form>
-        <ul id="book-list"></ul>
-    </div>
-</body>
-<script src="app.js"></script>
+            <form id="add-book-form">
+                <input type="text" name="titulo" id="titulo" placeholder="Digite o titulo do livro aqui">
+                <input type="autor" name="autor" id="autor" placeholder="Digite o autor do livro aqui">
+                <button>Cadastrar</button>
+            </form>
+
+            <ul id="book-list">
+
+            </ul>
+        </div>
+    </body>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+
+
+    <script>
+        const firebaseConfig = {
+        apiKey: "AIzaSyDxUt9uPiV4DChGlY_rX1i4aBwNHNK8VUE",
+        authDomain: "app-libri-henrique.firebaseapp.com",
+        projectId: "app-libri-henrique",
+        storageBucket: "app-libri-henrique.appspot.com",
+        messagingSenderId: "892303643855",
+        appId: "1:892303643855:web:0bdd3b1e720764298793ba",
+        measurementId: "G-X59EM8GSZS"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore(); 
+        
+        //console.log(db) 
+
+
+    </script>
+
+    <script src="./app.js"></script>
+
 </html>
