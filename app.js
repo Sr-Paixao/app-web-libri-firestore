@@ -5,7 +5,9 @@ function renderBook(doc) {
     let li = document.createElement('li')
     let titulo = document.createElement('span')
     let autor = document.createElement('span')
-
+    let excluir = document.createElement('div')
+    
+    excluir.textContent = 'x'
     //carrega os dados nos elementos html
 
     li.setAttribute('data-id', doc.id)
@@ -15,7 +17,17 @@ function renderBook(doc) {
     //adicionando dados de autor e titulo na tag li
     li.appendChild(titulo)
     li.appendChild(autor)
+    li.appendChild(excluir)
 
+    //Trava açao no click do botao x pra exclusao do arquivo
+    excluir.addEventListener('click', (event)=>{
+        event.stopPropagation();
+        let id = event.target.parentElement.getAttribute('data-id');
+        // alert(id)
+        db.collection('libri-firestore').doc(id).delete()
+            .then(()=>{window.location.reload()});
+    }
+)
     //adicionando o li na tag ul
     livrolist.appendChild(li)
     
